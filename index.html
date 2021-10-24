@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Validation Form</title>
+
+    <!-- Roboto Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--css file-->
+    <link type="text/css" rel="stylesheet" href="./assets/css/style.css" />
+
+    <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/4f7afca666.js"></script>
+  </head>
+  <body>
+    <h1 class="heading">Data Validation Form</h1>
+    <div class="container">
+      <div class="left-container">
+        <img src="./assets/images/left-bg.png" alt="background image" />
+      </div>
+      <div class="right-container">
+        <div class="form-container">
+          <form action="#" class="main-form">
+            <div class="name-group">
+              <div class="first-name">
+                <input type="text" name="firstName" placeholder="First name" />
+              </div>
+              <div class="last-name">
+                <input type="text" name="lastName" placeholder="Last name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                class="error"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+              />
+              <i class="fas fa-times-circle error-icon"></i>
+              <span class="error-message">*Error Message</span>
+            </div>
+            <div class="form-group">
+              <input
+                class="success"
+                type="text"
+                name="mobileNumber"
+                placeholder="Enter your mobile number"
+              />
+              <i class="fas fa-check-circle success-icon"></i>
+            </div>
+            <div class="form-group">
+              <input
+                id="passwordField"
+                type="password"
+                name="password"
+                placeholder="Enter a password"
+              />
+              <i
+                class="fas fa-eye-slash icon"
+                onclick="togglePasswordVisibility()"
+              ></i>
+            </div>
+            <div class="form-group">
+              <input
+                id="retypePasswordField"
+                type="password"
+                name="retypedPassowrd"
+                placeholder="Retype password"
+              />
+              <i
+                class="fas fa-eye-slash icon"
+                onclick="togglePasswordVisibility()"
+              ></i>
+            </div>
+            <div class="button-container">
+              <button class="button reset">RESET</button>
+              <button class="button submit">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--javascript file-->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

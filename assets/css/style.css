@@ -1,0 +1,172 @@
+/* Import Roboto font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+.heading {
+  text-align: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-container {
+  width: 50%;
+}
+.left-container img {
+  width: 80%;
+}
+
+.right-container {
+  width: 50%;
+  margin: 20px;
+}
+.form-container {
+  width: 550px;
+  padding: 40px;
+  background: #dffdff;
+  border: 1px solid #005197;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+}
+.name-group {
+  display: flex;
+  justify-content: space-between;
+}
+.first-name {
+  width: 50%;
+  margin-right: 10px;
+}
+.last-name {
+  width: 50%;
+  margin-left: 10px;
+}
+.form-group {
+  position: relative;
+  width: 100%;
+  height: 51px;
+  margin: 15px 0 10px 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 200;
+  border: none;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  background: #f3f1f1;
+}
+
+input.success {
+  border: 2px solid #00ca7b;
+}
+
+input.error {
+  border: 2px solid #f90061;
+}
+
+.icon {
+  position: absolute;
+  right: 11px;
+  margin-top: 20px;
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+}
+.success-icon {
+  position: absolute;
+  right: 11px;
+  margin-top: 20px;
+  width: 20px;
+  height: 20px;
+  color: #00ca7b;
+}
+
+.error-icon {
+  position: absolute;
+  right: 11px;
+  margin-top: 20px;
+  width: 20px;
+  height: 20px;
+  color: #f90061;
+}
+
+.error-message {
+  display: inline-block;
+  color: #f90061;
+}
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 14px 20px;
+  margin: 8px 0;
+  background: #fff;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}
+.reset {
+  margin-right: 10px;
+  border: 1px solid #90b2b9;
+  color: #90b2b9;
+  font-weight: 700;
+}
+.reset:hover {
+  background: #90b2b9;
+  color: #ffffff;
+}
+.submit {
+  margin-left: 10px;
+  border: 1px solid #15936d;
+  color: #15936d;
+  font-weight: 700;
+}
+.submit:hover {
+  background: #15936d;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .left-container {
+    display: none;
+  }
+  .right-container {
+    width: 100%;
+  }
+  .form-container {
+    width: 100%;
+    padding: 10px;
+  }
+}
