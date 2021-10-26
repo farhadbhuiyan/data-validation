@@ -30,6 +30,7 @@
             <div class="name-group">
               <div class="first-name">
                 <input
+                  onkeyup="handleName(firstNameField)"
                   id="firstName"
                   type="text"
                   name="firstName"
@@ -40,6 +41,7 @@
               </div>
               <div class="last-name">
                 <input
+                  onkeyup="handleName(lastNameField)"
                   id="lastName"
                   type="text"
                   name="lastName"
@@ -51,8 +53,9 @@
             </div>
             <div class="form-group">
               <input
+                onkeyup="handleEmail(emailField)"
                 id="email"
-                type="email"
+                type="text"
                 name="email"
                 placeholder="Enter your email"
               />
@@ -61,6 +64,7 @@
             </div>
             <div class="form-group">
               <input
+                onkeyup="handleMobileNumber(mobileNumberField)"
                 id="mobileNumber"
                 type="text"
                 name="mobileNumber"
@@ -71,6 +75,7 @@
             </div>
             <div class="form-group">
               <input
+                onkeyup="handlePassword(passwordField)"
                 id="password"
                 type="password"
                 name="password"
@@ -84,7 +89,8 @@
             </div>
             <div class="form-group">
               <input
-                id="retypePassword"
+                onkeyup="handleRetypedPassword(retypedPasswordField)"
+                id="retypedPassword"
                 type="password"
                 name="retypedPassowrd"
                 placeholder="Retype password"
@@ -96,7 +102,9 @@
               <span class="error-message"></span>
             </div>
             <div class="button-container">
-              <button class="button reset">RESET</button>
+              <button onclick="handleReset()" class="button reset">
+                RESET
+              </button>
               <button type="submit" class="button submit">SUBMIT</button>
             </div>
           </form>

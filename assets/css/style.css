@@ -67,7 +67,7 @@ body {
   position: relative;
   width: 100%;
   height: 45px;
-  margin: 15px 0 10px 0;
+  margin: 20px 0 10px 0;
   border-radius: 6px;
 }
 
@@ -128,10 +128,11 @@ input[type="password"]:focus {
 }
 
 .error-message {
+  height: auto;
   margin-top: 5px;
   margin-left: 2px;
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   color: #f90061;
 }
 .button-container {
