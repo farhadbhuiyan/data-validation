@@ -41,15 +41,14 @@ form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const isFormValid = isNameValid(firstNameField.value) &&
-                        isNameValid(lastNameField.value) &&
-                        isEmailValid(emailField.value) &&
-                        isMobileNumberValid(mobileNumberField.value) &&
-                        isPasswordValid(passwordField.value);
+        isNameValid(lastNameField.value) &&
+        isEmailValid(emailField.value) &&
+        isMobileNumberValid(mobileNumberField.value) &&
+        isPasswordValid(passwordField.value);
 
-                        console.log(isFormValid)
-    if(isFormValid){
+    if (isFormValid) {
         alert("Thank you! Your data is passed all test")
-    }else{
+    } else {
         alert("Sorry!. Enter valid data.")
     }
 });
@@ -160,12 +159,12 @@ const handleEmail = (inputField) => {
 
     if (isEmpty(email)) {
         handleError(inputField, "Email should not be empty")
-    }else if (isEmailValid(email)) {
+    } else if (isEmailValid(email)) {
         handleSuccess(inputField);
     } else {
         handleError(inputField, "Please enter a valid email address");
     }
- };
+};
 
 const handlePassword = (inputField) => {
     const password = inputField.value;
@@ -205,5 +204,5 @@ const handleReset = () => {
     passwordField.value = "";
     retypedPasswordField.value = "";
 
-    location.reload(); 
+    location.reload();
 }
