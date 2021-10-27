@@ -33,7 +33,6 @@ const retypedPasswordField = document.querySelector("#retypedPassword");
 const submitButton = document.querySelector(".submit");
 const form = document.querySelector("#form");
 
-console.log(submitButton);
 
 /* add eventlistener when submitting the form */
 
@@ -56,14 +55,14 @@ form.addEventListener("submit", function (e) {
 /* functions for check input validity */
 
 const isNameValid = (name) => {
-    const nameRegEx = /^[A-Za-z .]{3,30}$/;
+    const nameRegEx = /^[A-Za-z\- .]{3,30}$/;
     const isValid = nameRegEx.test(name);
 
     return isValid;
 };
 
 const isEmailValid = (email) => {
-    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegEx = /^(?!^\.)(?!.*[-_.]$)[^\s@%&#\$\!]+@[^\s@%&#\$\!]+\.[^\s@%&#\$\!]+$/;
     const isValid = emailRegEx.test(email);
 
     return isValid;
@@ -96,12 +95,16 @@ const isInRange = (length, max, min) => {
 const handleError = (inputField, message) => {
     const formGroup = inputField.parentElement;
     const successIcon = inputField.nextElementSibling;
+    const eyeIcon = successIcon.getAttribute("class") === "fas fa-eye-slash icon" ? true : false;
 
     formGroup.classList.add("error");
     formGroup.classList.remove("success");
 
-    successIcon.classList.remove("fa-check-circle", "success-icon");
-    successIcon.classList.add("fa-times-circle", "error-icon");
+    if (!eyeIcon) {
+        successIcon.classList.remove("fa-check-circle", "success-icon");
+        successIcon.classList.add("fa-times-circle", "error-icon");
+    }
+
 
     const errorMessage = formGroup.lastElementChild;
     errorMessage.innerText = message;
@@ -110,12 +113,14 @@ const handleError = (inputField, message) => {
 const handleSuccess = (inputField) => {
     const formGroup = inputField.parentElement;
     const successIcon = inputField.nextElementSibling;
+    const eyeIcon = successIcon.getAttribute("class") === "fas fa-eye-slash icon" ? true : false;
 
     formGroup.classList.add("success");
     formGroup.classList.remove("error");
-
-    successIcon.classList.add("fa-check-circle", "success-icon");
-    successIcon.classList.remove("fa-times-circle", "error-icon");
+    if (!eyeIcon) {
+        successIcon.classList.add("fa-check-circle", "success-icon");
+        successIcon.classList.remove("fa-times-circle", "error-icon");
+    }
 
     const errorMessage = formGroup.lastElementChild;
     errorMessage.innerText = "";
@@ -143,9 +148,12 @@ const handleMobileNumber = (inputField) => {
     const mobileNumber = inputField.value;
 
     if (isEmpty(mobileNumber)) {
-        handleError(inputField, "Mobile number should not be empty")
-    } else if (isInRange(mobileNumber.length, 11, 11)) {
-        handleError(mobileNumberField, "Mobile number should be 11 digits")
+        handleError(inputField, "Mobile number should not be empty");
+    } else if (mobileNumber % 1 !== 0) {
+        handleError(mobileNumberField, "Only digit's are allowed");
+    }
+    else if (isInRange(mobileNumber.length, 11, 11)) {
+        handleError(mobileNumberField, "Mobile number should be 11 digits");
 
     } else if (isMobileNumberValid(mobileNumber)) {
         handleSuccess(mobileNumberField);
@@ -187,22 +195,15 @@ const handleRetypedPassword = () => {
 
     if (isEmpty(retypedPassword)) {
         handleError(retypedPasswordField, "Password should not be empty");
-    } else if (isPasswordValid(retypedPassword)) {
-        handleSuccess(retypedPasswordField);
-    } else if (password !== retypedPassword) {
+    } else if (password !== retypedPassword || password.length !== retypedPassword.length) {
         handleError(retypedPasswordField, "Password doesn't match");
+    } else {
+        handleSuccess(retypedPasswordField);
     }
 
 }
 
 const handleReset = () => {
-
-    firstNameField.value = "";
-    lastNameField.value = "";
-    emailField.value = "";
-    mobileNumberField.value = "";
-    passwordField.value = "";
-    retypedPasswordField.value = "";
-
+    form.reset();
     location.reload();
 }
